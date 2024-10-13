@@ -12,7 +12,7 @@ blueprint:
           domain: sensor
 
     toggle: #Only for version less then V1.0.35
-      name: play
+      name: play old version 
       description: "Action to run on play button press. Only for version less then V1.0.35"
       default: []
       selector:
@@ -26,112 +26,112 @@ blueprint:
         action: {}    
 
     track_next:
-      name: track_next
+      name: track next
       description: "Action to run on track next button press."
       default: []
       selector:
         action: {}
 
     track_previous:
-      name: track_previous
+      name: track previous
       description: "Action to run on track previous button press."
       default: []
       selector:
         action: {}
 
     volume_up:
-      name: volume_up
+      name: volume up
       description: "Action to run on volume up button press."
       default: []
       selector:
         action: {}
 
     volume_up_hold:
-      name: volume_up_hold
+      name: volume up hold
       description: "Action to run on volume up button press hold."
       default: []
       selector:
         action: {}
 
     volume_down:
-      name: volume_down
+      name: volume down
       description: "Action to run on volume down button press."
       default: []
       selector:
         action: {}
 
     volume_down_hold:
-      name: volume_down_hold
+      name: volume down hold
       description: "Action to run on volume down button press hold."
       default: []
       selector:
         action: {}
 
     dots_1_initial_press:
-      name: dots_1_initial_press
+      name: dots_1 initial press
       description: "Action to run on dots 1 button press."
       default: []
       selector:
         action: {}
         
     dots_1_short_release: #Only for V1.0.35
-      name: dots_1_short_release
+      name: dots 1 short release
       description: "Action to run on dots 1 button short press. Only for V1.0.35"
       default: []
       selector:
         action: {}
         
     dots_1_double_press:
-      name: dots_1_double_press
+      name: dots 1 double press
       description: "Action to run on dots 1 button double press."
       default: []
       selector:
         action: {}
         
     dots_1_long_press:
-      name: dots_1_long_press
+      name: dots 1 long press
       description: "Action to run on dots 1 button long press."
       default: []
       selector:
         action: {}
         
     dots_1_long_release: #Only for higher than V1.0.012
-      name: dots_1_long_release
+      name: dots 1 long release
       description: "Action to run on dots 1 button long press release. Only for higher than V1.0.012"
       default: []
       selector:
         action: {}
         
     dots_2_initial_press:
-      name: dots_2_initial_press
+      name: dots 2 initial press
       description: "Action to run on dots 2 button press."
       default: []
       selector:
         action: {}
         
     dots_2_short_release: #Only for V1.0.35
-      name: dots_2_short_release
+      name: dots 2 short release
       description: "Action to run on dots 2 button short press. Only for V1.0.35"
       default: []
       selector:
         action: {}
         
     dots_2_double_press:
-      name: dots_2_double_press
+      name: dots 2 double press
       description: "Action to run on dots 2 button double press."
       default: []
       selector:
         action: {}
         
     dots_2_long_press:
-      name: dots_2_long_press
+      name: dots 2 long press
       description: "Action to run on dots 2 button long press."
       default: []
       selector:
         action: {}
         
     dots_2_long_release: #Only for higher than V1.0.012 
-      name: dots_2_long_release
+      name: dots 2 long release
       description: "Action to run on dots 2 button long press release. Only for higher than V1.0.012 "
       default: []
       selector:
