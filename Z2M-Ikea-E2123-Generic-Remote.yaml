@@ -13,14 +13,14 @@ blueprint:
 
     toggle: #Only for version less then V1.0.35
       name: play
-      description: "Action to run on play button press."
+      description: "Action to run on play button press. Only for version less then V1.0.35"
       default: []
       selector:
         action: {}
 
     play_pause: #Only for version V1.0.35
       name: play
-      description: "Action to run on play button press."
+      description: "Action to run on play button press. #Only for version V1.0.35"
       default: []
       selector:
         action: {}    
@@ -76,7 +76,7 @@ blueprint:
         
     dots_1_short_release: #Only for V1.0.35
       name: dots_1_short_release
-      description: "Action to run on dots 1 button short press."
+      description: "Action to run on dots 1 button short press. Only for V1.0.35"
       default: []
       selector:
         action: {}
@@ -97,7 +97,7 @@ blueprint:
         
     dots_1_long_release: #Only for higher than V1.0.012
       name: dots_1_long_release
-      description: "Action to run on dots 1 button long press release."
+      description: "Action to run on dots 1 button long press release. Only for higher than V1.0.012"
       default: []
       selector:
         action: {}
@@ -111,7 +111,7 @@ blueprint:
         
     dots_2_short_release: #Only for V1.0.35
       name: dots_2_short_release
-      description: "Action to run on dots 2 button short press."
+      description: "Action to run on dots 2 button short press. Only for V1.0.35"
       default: []
       selector:
         action: {}
@@ -132,7 +132,7 @@ blueprint:
         
     dots_2_long_release: #Only for higher than V1.0.012 
       name: dots_2_long_release
-      description: "Action to run on dots 2 button long press release."
+      description: "Action to run on dots 2 button long press release. Only for higher than V1.0.012 "
       default: []
       selector:
         action: {}
