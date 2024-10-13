@@ -10,12 +10,20 @@ blueprint:
         entity:
           integration: mqtt
           domain: sensor
-    toggle:
+
+    toggle: #Only for version less then V1.0.35
       name: play
       description: "Action to run on play button press."
       default: []
       selector:
         action: {}
+
+    play_pause: #Only for version V1.0.35
+      name: play
+      description: "Action to run on play button press."
+      default: []
+      selector:
+        action: {}    
 
     track_next:
       name: track_next
@@ -66,7 +74,7 @@ blueprint:
       selector:
         action: {}
         
-    dots_1_short_release:
+    dots_1_short_release: #Only for V1.0.35
       name: dots_1_short_release
       description: "Action to run on dots 1 button short press."
       default: []
@@ -87,7 +95,7 @@ blueprint:
       selector:
         action: {}
         
-    dots_1_long_release:
+    dots_1_long_release: #Only for higher than V1.0.012
       name: dots_1_long_release
       description: "Action to run on dots 1 button long press release."
       default: []
@@ -101,7 +109,7 @@ blueprint:
       selector:
         action: {}
         
-    dots_2_short_release:
+    dots_2_short_release: #Only for V1.0.35
       name: dots_2_short_release
       description: "Action to run on dots 2 button short press."
       default: []
@@ -122,7 +130,7 @@ blueprint:
       selector:
         action: {}
         
-    dots_2_long_release:
+    dots_2_long_release: #Only for higher than V1.0.012 
       name: dots_2_long_release
       description: "Action to run on dots 2 button long press release."
       default: []
@@ -142,54 +150,74 @@ variables:
 
 action:
   - choose:
-    - conditions:
+    - conditions: #Only for version less then V1.0.35
         - "{{ command == 'toggle' }}"
       sequence: !input toggle
+
+    - conditions: #Only for version V1.0.35
+        - "{{ command == 'play_pause' }}"
+      sequence: !input play_pause
+
     - conditions:
         - "{{ command == 'track_next' }}"
       sequence: !input track_next
+
     - conditions:
         - "{{ command == 'track_previous' }}"
       sequence: !input track_previous
+
     - conditions:
         - "{{ command == 'volume_up' }}"
       sequence: !input volume_up
+
     - conditions:
         - "{{ command == 'volume_up_hold' }}"
       sequence: !input volume_up_hold
+
     - conditions:
         - "{{ command == 'volume_down' }}"
       sequence: !input volume_down
+
     - conditions:
         - "{{ command == 'volume_down_hold' }}"
       sequence: !input volume_down_hold
+
     - conditions:
         - "{{ command == 'dots_1_initial_press' }}"
       sequence: !input dots_1_initial_press
-    - conditions:
+
+    - conditions: #Only for V1.0.35
         - "{{ command == 'dots_1_short_release' }}"
       sequence: !input dots_1_short_release
+
     - conditions:
         - "{{ command == 'dots_1_double_press' }}"
       sequence: !input dots_1_double_press
+
     - conditions:
         - "{{ command == 'dots_1_long_press' }}"
       sequence: !input dots_1_long_press
-    - conditions:
+
+    - conditions: #Only for higher than V1.0.012
         - "{{ command == 'dots_1_long_release' }}"
       sequence: !input dots_1_long_release
+
     - conditions:
         - "{{ command == 'dots_2_initial_press' }}"
       sequence: !input dots_2_initial_press
-    - conditions:
+
+    - conditions: #Only for V1.0.35
         - "{{ command == 'dots_2_short_release' }}"
       sequence: !input dots_2_short_release
+
     - conditions:
         - "{{ command == 'dots_2_double_press' }}"
       sequence: !input dots_2_double_press
+
     - conditions:
         - "{{ command == 'dots_2_long_press' }}"
       sequence: !input dots_2_long_press
-    - conditions:
+
+    - conditions: #Only for higher than V1.0.012
         - "{{ command == 'dots_2_long_release' }}"
       sequence: !input dots_2_long_release
