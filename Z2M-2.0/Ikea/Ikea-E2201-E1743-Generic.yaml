@@ -1,7 +1,7 @@
 blueprint:
-  name: Ikea E2201 - Z2M 2.0 - Generic use
+  name: Ikea E2201-E1743 - Z2M 2.0 - Generic use
   description: >-
-    This blueprint is for Ikea E2201 generic use.
+    This blueprint is for Ikea E2201/E1743 generic use.
   domain: automation
 
   input:
