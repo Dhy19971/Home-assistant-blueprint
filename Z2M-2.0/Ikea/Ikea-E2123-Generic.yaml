@@ -1,7 +1,7 @@
 blueprint:
-  name: Ikea E2123 - 1.0.35 - Z2M 2.0 - Generic use
+  name: Ikea E2123 - Z2M 2.0 - Generic use
   description: >-
-    This blueprint is for Ikea E2123 (firmware 1.0.35) generic use.
+    This blueprint is for Ikea E2123 generic use.
   domain: automation
 
   input:
@@ -13,9 +13,16 @@ blueprint:
           filter:
             - integration: mqtt
 
-    play_pause:
+    play_pause: #firmware 1.0.35
       name: Play Button Click
-      description: Action to perform
+      description: Action to perform (firmware 1.0.35)
+      selector:
+        action:
+      default: []
+
+    toggle: #firmware 1.0.32
+      name: Play Button Click
+      description: Action to perform (firmware 1.0.32)
       selector:
         action:
       default: []
@@ -146,6 +153,13 @@ triggers:
   - domain: mqtt
     device_id: !input remote
     type: action
+    subtype: toggle
+    id: toggle
+    trigger: device
+
+  - domain: mqtt
+    device_id: !input remote
+    type: action
     subtype: track_next
     id: track_next
     trigger: device
@@ -256,6 +270,13 @@ actions:
             id:
               - play_pause
         sequence: !input play_pause
+
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - toggle
+        sequence: !input toggle
 
       - conditions:
           - condition: trigger
