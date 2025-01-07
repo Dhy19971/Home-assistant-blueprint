@@ -13,7 +13,7 @@ blueprint:
           filter:
             - integration: mqtt
 
-    on: 
+    on_act: 
       name: Top Button push
       description: Action to perform 
       selector:
@@ -34,7 +34,7 @@ blueprint:
         action:
       default: []
 
-    off:
+    off_act:
       name: Bottom Button push
       description: Action to perform
       selector:
@@ -192,7 +192,7 @@ actions:
           - condition: trigger
             id:
               - 'on'
-        sequence: !input 'on'
+        sequence: !input on_act
 
   - choose:
       - conditions:
@@ -211,7 +211,7 @@ actions:
           - condition: trigger
             id:
               - 'off'
-        sequence: !input 'off'
+        sequence: !input off_act
 
       - conditions:
           - condition: trigger
