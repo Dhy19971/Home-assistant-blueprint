@@ -1,0 +1,121 @@
+blueprint:
+  name: Ikea E2201 - Z2M 2.0 - Generic use
+  description: >-
+    This blueprint is for Ikea E2201 generic use.
+  domain: automation
+
+  input:
+    remote:
+      name: Remote
+      description: The MQTT device created by Z2M
+      selector:
+        device:
+          filter:
+            - integration: mqtt
+
+    on_act:
+      name: On Button Click
+      description: Action to perform
+      selector:
+        action:
+      default: []
+
+    off_act:
+      name: Off Button Click
+      description: Action to perform
+      selector:
+        action:
+      default: []
+
+    brightness_move_up:
+      name: Brightness move Up
+      description: Action to perform
+      selector:
+        action:
+      default: []
+
+    brightness_move_down:
+      name: Brightness move Down
+      description: Action to perform
+      selector:
+        action:
+      default: []
+
+    brightness_stop:
+      name: Brightness Down Hold
+      description: Action to perform
+      selector:
+        action:
+      default: []
+
+mode: parallel
+max: 10
+  
+triggers:
+  - domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: 'on'
+    id: 'on'
+    trigger: device
+
+  - domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: 'off'
+    id: 'off'
+    trigger: device
+
+  - domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: brightness_move_up
+    id: brightness_move_up
+    trigger: device
+
+  - domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: brightness_move_down
+    id: brightness_move_down
+    trigger: device
+
+  - domain: mqtt
+    device_id: !input remote
+    type: action
+    subtype: brightness_stop
+    id: brightness_stop
+    trigger: device
+
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - 'on'
+        sequence: !input on_act
+
+      - conditions:
+          - condition: trigger
+            id:
+              - 'off'
+        sequence: !input off_act
+
+      - conditions:
+          - condition: trigger
+            id:
+              - brightness_move_up
+        sequence: !input brightness_move_up
+
+      - conditions:
+          - condition: trigger
+            id:
+              - brightness_move_down
+        sequence: !input brightness_move_down
+
+      - conditions:
+          - condition: trigger
+            id:
+              - brightness_stop
+        sequence: !input brightness_stop
