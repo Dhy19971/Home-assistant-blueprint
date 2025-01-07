@@ -15,14 +15,14 @@ blueprint:
 
     on_act: 
       name: Top Button push
-      description: Action to perform 
+      description: Action to perform
       selector:
         action:
       default: []
 
     brightness_move_up: 
       name: Top Button hold
-      description: Action to perform 
+      description: Action to perform
       selector:
         action:
       default: []
@@ -43,13 +43,6 @@ blueprint:
 
     brightness_move_down:
       name: Bottom Button hold
-      description: Action to perform
-      selector:
-        action:
-      default: []
-
-    brightness_stop:
-      name: Bottom Button release
       description: Action to perform
       selector:
         action:
@@ -139,13 +132,6 @@ triggers:
   - domain: mqtt
     device_id: !input remote
     type: action
-    subtype: brightness_stop
-    id: brightness_stop
-    trigger: device
-
-  - domain: mqtt
-    device_id: !input remote
-    type: action
     subtype: arrow_left_click
     id: arrow_left_click
     trigger: device
@@ -218,12 +204,6 @@ actions:
             id:
               - brightness_move_down
         sequence: !input brightness_move_down
-
-      - conditions:
-          - condition: trigger
-            id:
-              - brightness_stop
-        sequence: !input brightness_stop
 
       - conditions:
           - condition: trigger
