@@ -166,8 +166,8 @@ triggers:
   - domain: mqtt
     device_id: !input remote
     type: action
-    subtype: track_next
-    id: track_next
+    subtype: track_previous
+    id: track_previous
     trigger: device
 
   - domain: mqtt
